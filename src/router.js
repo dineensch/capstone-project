@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Router from "vue-router";
-import CitySearch from "@/views/CitySearch";
+import Home from "@/views/Home";
 import CurrentWeather from "@/views/CurrentWeather";
 import Forecast from "@/views/Forecast";
 
@@ -10,8 +10,8 @@ export default new Router({
   routes: [
     {
       path: "/",
-      name: "CitySearch",
-      component: CitySearch
+      name: "Home",
+      component: Home
     },
     {
       path: "/:cityId/current",
