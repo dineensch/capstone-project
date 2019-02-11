@@ -1,8 +1,8 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Home from "@/views/Home";
-import CurrentWeather from "@/views/CurrentWeather";
-import Forecast from "@/views/Forecast";
+import RSVP from "@/views/RSVP";
+import Venue from "@/views/Venue";
 
 Vue.use(Router);
 
@@ -14,14 +14,14 @@ export default new Router({
       component: Home
     },
     {
-      path: "/:cityId/current",
-      name: "CurrentWeather",
-      component: CurrentWeather
+      path: "/rsvp",
+      name: "RSVP",
+      component: RSVP
     },
     {
-      path: "/:cityId/forecast",
-      name: "Forecast",
-      component: Forecast
+      path: "/venue",
+      name: "Venue",
+      component: Venue
     }
   ]
 });
