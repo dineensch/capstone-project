@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-jumbotron bg-variant="light" text-variant="black" border-variant="light">
-      <template slot="header">Vevnue</template>
+      <template slot="header">The Team</template>
       <hr class="my-4">
     </b-jumbotron>
   </div>
@@ -11,7 +11,7 @@
 import { API } from "@/common/api";
 
 export default {
-  name: "Venue",
+  name: "TheTeam",
   data() {
     return {
       results: null,

@@ -10,13 +10,9 @@
         <b-navbar-nav fixed="top" active>
           <b-nav-item to="/rsvp">RSVP</b-nav-item>
           <b-nav-item to="/venue">Venue</b-nav-item>
-          <b-nav-item href="#">FAQs</b-nav-item>
+          <b-nav-item to="/faqs">FAQs</b-nav-item>
+          <b-nav-item to="/theteam">The Team</b-nav-item>
         </b-navbar-nav>
-
-        <b-nav-item-dropdown text="The Team" right>
-          <b-dropdown-item href="#">Groom's Side</b-dropdown-item>
-          <b-dropdown-item href="#">Bride's Side</b-dropdown-item>
-        </b-nav-item-dropdown>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>

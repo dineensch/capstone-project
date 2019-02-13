@@ -1,39 +1,15 @@
 <template>
   <div>
-    <jumbo-tron></jumbo-tron>
+    <b-jumbotron bg-variant="light" text-variant="black" border-variant="light">
+      <template slot="header">Home Page</template>
+      <hr class="my-4">
+    </b-jumbotron>
 
-    <!-- <div v-show="success">
-      <b-alert show dismissible fade variant="dark">RSVP Successfully Submitted.</b-alert>
-    </div>
-
-    <p>Enter a number less than 5 for option 1. Enter a number greater than 5 for option 2</p>
-
-    <div>
-      <b-form inline v-on:submit.prevent="validateForm">
-        <label class="sr-only" for="name1"></label>
-        <b-input v-model="name1" class="mb-2 mr-sm-2 mb-sm-0" id="name1" placeholder="Name"/>
-
-        <label class="sr-only" for="code"></label>
-        <b-input left="@" class="mb-2 mr-sm-2 mb-sm-0" v-model="code" id="code" placeholder="Code"/>
-
-        <b-btn v-show="oneRSVP" type="submit" variant="dark" class="m-1">RSVP</b-btn>
-      </b-form>
-    </div>
-
-
-    <div v-show="showForm">
-      <b-form inline v-on:submit.prevent="validateForm2">
-        <label class="sr-only" for="name2">Guest Name</label>
-        <b-input v-model="name2" class="mb-2 mr-sm-2 mb-sm-0" id="name2" placeholder="Guest Name"/>
-        <b-btn type="submit" variant="dark" class="m-1">RSVP</b-btn>
-      </b-form>
-    </div>
-    -->
+   
   </div>
 </template>
 
 <script>
-import jumbotron from "@/components/jumbotron";
 
 export default {
   name: "Home",
@@ -62,10 +38,6 @@ export default {
       }
     }
   },
-
-  components: {
-    "jumbo-tron": jumbotron
-  }
 };
 </script>
 
