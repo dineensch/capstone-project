@@ -1,5 +1,5 @@
 <template>
-  <b-navbar toggleable="md" type="dark" variant="dark mt-4">
+  <b-navbar toggleable="md" type="dark" variant="dark pt-2">
     <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
 
     <b-navbar-brand to="/">Home</b-navbar-brand>
@@ -8,7 +8,6 @@
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
         <b-navbar-nav fixed="top" active>
-          <b-nav-item to="/rsvp">RSVP</b-nav-item>
           <b-nav-item to="/venue">Venue</b-nav-item>
           <b-nav-item to="/faqs">FAQs</b-nav-item>
           <b-nav-item to="/theteam">The Team</b-nav-item>
