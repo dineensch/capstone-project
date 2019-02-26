@@ -30,6 +30,7 @@
 
 <section>
   <h2 class="my-4 font-weight-bold"> RSVP </h2>
+  
  <!------------- FORM 1 ------------------->
     <div class="mb-5 mx-1">
       <h5 class="font-weight-bold"> Form 1 Logic </h5>
@@ -80,13 +81,19 @@
 </template>
 
 <script>
-import { API } from "@/common/api";
 import firebase from "firebase";
+import router from '../router'
 
 export default {
   name: "Home",
   data() {
     return {
+      fields: {
+        guestName: {label: 'Name'},
+        addGuest: {label: 'Guest Name'},
+        actions: {label:'Action', 'class':'text-center'}
+      },
+      guests: [],
       results: null,
       slide: 0,
       sliding: null,
@@ -98,8 +105,9 @@ export default {
       success: false,
       name1: "",
       name2: "",
-      code: ""
-    };
+      code: "",
+      ref: firebase.firestore().collection('guests'),
+    }
   },
   methods: {
     validateForm: function() {

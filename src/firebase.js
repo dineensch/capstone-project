@@ -1,10 +1,10 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-import Vue from "vue";
-import firebase from "firebase";
+import Vue from "vue"
+import * as firebase from 'firebase/app';
+import 'firebase/firestore'
 
 Vue.config.productionTip = false;
-
 // Initialize Firebase
 // TODO: Only import part of the SDK that you'll use
 const config = {
@@ -17,3 +17,7 @@ const config = {
 };
 
 firebase.initializeApp(config);
+
+firebase.firestore();
+
+export default firebase;
