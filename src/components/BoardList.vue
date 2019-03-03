@@ -1,10 +1,12 @@
 <template>
   <b-row>
     <b-col cols="12">
-      <h2>RSVP</h2>
+      <h2>Board List
+        <b-link href="#/add-board">(Add Board)</b-link>
+      </h2>
       <b-table striped hover :items="boards" :fields="fields">
         <template slot="actions" scope="row">
-          <b-btn size="sm" @click.stop="details(row.item)">Edit</b-btn>
+          <b-btn size="sm" @click.stop="details(row.item)">Details</b-btn>
         </template>
       </b-table>
     </b-col>
@@ -16,14 +18,14 @@ import firebase from "../firebase";
 import router from "../router";
 
 export default {
-  name: "RSVP",
+  name: "BoardList",
   data() {
     return {
       fields: {
-        name: { label: "Name", class: "text-left" },
-        guest: { label: "Guest", class: "text-left" },
-        rsvp: { label: "RSVP", class: "text-left" },
-        actions: { label: "", class: "text-center" }
+        name: { label: "Name", sortable: true, class: "text-left" },
+        guest: { label: "Guest", sortable: true, class: "text-left" },
+        rsvp: { label: "RSVP", sortable: true, class: "text-left" },
+        actions: { label: "Action", class: "text-center" }
       },
       boards: [],
       errors: [],

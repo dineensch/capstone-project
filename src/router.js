@@ -1,5 +1,9 @@
 import Vue from "vue";
 import Router from "vue-router";
+import BoardList from "@/components/BoardList";
+import ShowBoard from "@/components/ShowBoard";
+import AddBoard from "@/components/AddBoard";
+import EditBoard from "@/components/EditBoard";
 import Home from "@/views/Home";
 import RSVP from "@/views/RSVP";
 import FAQs from "@/views/FAQs";
@@ -33,7 +37,30 @@ export default new Router({
     {
       path: "/show-form/:id",
       name: "ShowForm",
-      component: ShowForm
+      component: ShowForm,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/show-board/:id",
+      name: "ShowBoard",
+      component: ShowBoard
+    },
+    {
+      path: "/",
+      name: "BoardList",
+      component: BoardList
+    },
+    {
+      path: "/add-board",
+      name: "AddBoard",
+      component: AddBoard
+    },
+    {
+      path: "/edit-board/:id",
+      name: "EditBoard",
+      component: EditBoard
     }
   ]
 });

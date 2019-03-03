@@ -3,96 +3,136 @@
     <!-- <b-jumbotron bg-variant="light" text-variant="black" border-variant="light">
       <template slot="header">Welcome</template>
       <hr class="my-4">
-    </b-jumbotron> -->
-
-      <div class="carousel-section">
-        <div class="middle-left p-3">Welcome</div>
-        <b-carousel id="carousel1"
-                      controls
-                      indicators
-                      :interval="4000"
-                      img-width="100"
-                      v-model="slide"
-                      @sliding-start="onSlideStart"
-                      @sliding-end="onSlideEnd"
-                      style="text-shadow: 1px 1px 2px #333;"
-          >
-            <b-carousel-slide img-src="https://picsum.photos/670/315/?image=52"></b-carousel-slide>
-            <b-carousel-slide img-src="https://picsum.photos/670/315/?image=54"></b-carousel-slide>
-            <b-carousel-slide img-src="https://picsum.photos/670/315/?image=58"></b-carousel-slide>
-            <b-carousel-slide img-src="https://picsum.photos/670/315/?image=55"></b-carousel-slide>
-        </b-carousel>
-      </div>
+    </b-jumbotron>-->
+    <div class="carousel-section">
+      <div class="middle-left p-3">Welcome</div>
+      <b-carousel
+        id="carousel1"
+        controls
+        indicators
+        :interval="4000"
+        img-width="100"
+        v-model="slide"
+        @sliding-start="onSlideStart"
+        @sliding-end="onSlideEnd"
+        style="text-shadow: 1px 1px 2px #333;"
+      >
+        <b-carousel-slide img-src="https://picsum.photos/670/315/?image=52"></b-carousel-slide>
+        <b-carousel-slide img-src="https://picsum.photos/670/315/?image=54"></b-carousel-slide>
+        <b-carousel-slide img-src="https://picsum.photos/670/315/?image=58"></b-carousel-slide>
+        <b-carousel-slide img-src="https://picsum.photos/670/315/?image=55"></b-carousel-slide>
+      </b-carousel>
+    </div>
 
     <div v-show="success">
       <b-alert show dismissible fade variant="dark">RSVP Successfully Submitted.</b-alert>
     </div>
 
-<section>
-  <h2 class="my-4 font-weight-bold"> RSVP </h2>
-  
- <!------------- FORM 1 ------------------->
-    <div class="mb-5 mx-1">
-      <h5 class="font-weight-bold"> Form 1 Logic </h5>
-      <hr class="mt-0">    
-      <p>Enter a code number less than 5 for option 1. Enter a number greater than 5 to display the second form.</p>
-      <div>
-        <b-form inline v-on:submit.prevent="validateForm1">
-          <label class="sr-only" for="form1Name"></label>
-          <b-input v-model="form1Name" class="mb-2 mr-sm-2 mb-sm-0" id="form1Name" placeholder="Name"/>
+    <section>
+      <h2 class="my-4 font-weight-bold">RSVP</h2>
 
-          <label class="sr-only" for="form1Code"></label>
-            <b-input left="@" class="mb-2 mr-sm-2 mb-sm-0" v-model="form1Code" id="form1Code" placeholder="Code"/>
+      <!------------- FORM 1 ------------------->
+      <div class="mb-5 mx-1">
+        <h5 class="font-weight-bold">Form 1 Logic</h5>
+        <hr class="mt-0">
+        <p>Enter a code number less than 5 for option 1. Enter a number greater than 5 to display the second form.</p>
+        <div>
+          <b-form inline v-on:submit.prevent="validateForm1">
+            <label class="sr-only" for="form1Name"></label>
+            <b-input
+              v-model="form1Name"
+              class="mb-2 mr-sm-2 mb-sm-0"
+              id="form1Name"
+              placeholder="Name"
+            />
 
-          <b-btn v-show="oneRSVP" type="submit" variant="dark" class="m-1">RSVP</b-btn>
-        </b-form>
+            <label class="sr-only" for="form1Code"></label>
+            <b-input
+              left="@"
+              class="mb-2 mr-sm-2 mb-sm-0"
+              v-model="form1Code"
+              id="form1Code"
+              placeholder="Code"
+            />
+
+            <b-btn v-show="oneRSVP" type="submit" variant="dark" class="m-1">RSVP</b-btn>
+          </b-form>
+        </div>
+
+        <!-- HIDDEN RSVP FORM -->
+        <div v-show="showForm">
+          <b-form inline v-on:submit.prevent="validateForm2">
+            <label class="sr-only" for="form1Name2">Guest Name</label>
+            <b-input
+              v-model="form1Name2"
+              class="mb-2 mr-sm-2 mb-sm-0"
+              id="fform1Name2"
+              placeholder="Guest Name"
+            />
+            <b-btn type="submit" variant="dark" class="m-1">RSVP</b-btn>
+          </b-form>
+        </div>
       </div>
 
-      <!-- HIDDEN RSVP FORM -->
-      <div v-show="showForm">
-        <b-form inline v-on:submit.prevent="validateForm2">
-          <label class="sr-only" for="form1Name2">Guest Name</label>
-          <b-input v-model="form1Name2" class="mb-2 mr-sm-2 mb-sm-0" id="fform1Name2" placeholder="Guest Name"/>
-          <b-btn type="submit" variant="dark" class="m-1">RSVP</b-btn>
-        </b-form>
-      </div>
-    </div>
+      <!--------- FORM 2: AUTH FROM FIREBASE ---------->
+      <div class="my-5 mx-1">
+        <h5 class="font-weight-bold">Form 2 Logic</h5>
+        <hr class="mt-0">
+        <p>
+          <span class="font-weight-bold">Name:</span> test@example.com
+          <span class="font-weight-bold">Code:</span> vuetest
+        </p>
 
-<!--------- FORM 2: AUTH FROM FIREBASE ---------->
-    <div class="my-5 mx-1">
-      <h5 class="font-weight-bold"> Form 2 Logic </h5>
-      <hr class="mt-0">
-        <p><span class="font-weight-bold">Name:</span> test@example.com  <span class="font-weight-bold">Code:</span> vuetest</p>
-      
-      <!-- RSVP FORM  -->
-      <div>
-        <b-form inline v-on:submit.prevent="validateForm">
-          <label class="sr-only" for="name1"></label>
-          <b-input type="text" v-model="name1" class="mb-2 mr-sm-2 mb-sm-0" id="name1" placeholder="Name"/>
+        <!-- RSVP FORM  -->
+        <div>
+          <b-form inline v-on:submit.prevent="validateForm">
+            <label class="sr-only" for="name1"></label>
+            <b-input
+              type="text"
+              v-model="name1"
+              class="mb-2 mr-sm-2 mb-sm-0"
+              id="name1"
+              placeholder="Name"
+            />
 
-          <label class="sr-only" for="code"></label>
-          <b-input type="password" left="@" class="mb-2 mr-sm-2 mb-sm-0" v-model="code" id="code" placeholder="Code"/>
-          <b-btn type="submit" variant="dark" class="m-1">RSVP</b-btn>
-        </b-form>
+            <label class="sr-only" for="code"></label>
+
+            <b-input
+              type="password"
+              left="@"
+              class="mb-2 mr-sm-2 mb-sm-0"
+              v-model="code"
+              id="code"
+              placeholder="Code"
+            />
+
+            <b-btn type="submit" variant="dark" class="m-1">RSVP</b-btn>
+          </b-form>
+        </div>
       </div>
-    </div>
-</section>
+    </section>
   </div>
 </template>
 
+
+
 <script>
 import firebase from "firebase";
-import router from '../router'
+import router from "../router";
 
 export default {
   name: "Home",
   data() {
     return {
       fields: {
-        guestName: {label: 'Name'},
-        addGuest: {label: 'Guest Name'},
-        actions: {label:'Action', 'class':'text-center'}
+        guestName: { label: "Name" },
+        addGuest: { label: "Guest Name" },
+        guest: { label: "Guest", class: "text-left" },
+        actions: { label: "RSVP", class: "text-center" }
       },
+      boards: [],
+      errors: [],
+      ref: firebase.firestore().collection("users"),
       guests: [],
       results: null,
       slide: 0,
@@ -105,9 +145,19 @@ export default {
       success: false,
       name1: "",
       name2: "",
-      code: "",
-      ref: firebase.firestore().collection('guests'),
-    }
+      code: ""
+    };
+  },
+  created() {
+    this.ref.onSnapshot(querySnapshot => {
+      this.boards = [];
+      querySnapshot.forEach(doc => {
+        this.boards.push({
+          key: doc.id,
+          guest: doc.data().guest
+        });
+      });
+    });
   },
   methods: {
     validateForm: function() {
@@ -137,13 +187,17 @@ export default {
       }
     },
 
-onSlideStart (slide) {
-    this.sliding = true
+    onSlideStart(slide) {
+      this.sliding = true;
     },
-    onSlideEnd (slide) {
-      this.sliding = false
+    onSlideEnd(slide) {
+      this.sliding = false;
+    },
+
+    details(board) {
+      router.push({ name: "ShowForm", params: { id: board.key } });
     }
-  },
+  }
 };
 </script>
 
@@ -180,7 +234,7 @@ a {
   margin: auto 0;
   top: 25%;
   font-size: 50px;
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(0, 0, 0, 0.6);
   width: 100%;
   height: 100px;
   z-index: 20;

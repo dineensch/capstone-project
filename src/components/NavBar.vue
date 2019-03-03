@@ -8,7 +8,7 @@
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
         <b-navbar-nav fixed="top" active>
-          <b-nav-item to="/RSVP">Venue</b-nav-item>
+          <b-nav-item to="/RSVP">RSVP</b-nav-item>
           <b-nav-item to="/faqs">FAQs</b-nav-item>
           <b-nav-item to="/theteam">The Team</b-nav-item>
         </b-navbar-nav>

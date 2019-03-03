@@ -1,0 +1,38 @@
+{
+    "users": [
+        {
+            "test@example.com": {
+                "guests": {
+                    "guest1": {
+                        "fname": "Jane",
+                        "lname": "Doe"
+                    },
+                    "guest2": {
+                        "fname": "John",
+                        "lname": "Doe"
+                    }
+                } 
+            }
+        }
+    ]
+}
+
+
+{
+    "collection": [
+        {
+            "document": {
+                "collection": {
+                    "document": {
+                        "field": "Jane",
+                        "field": "Doe"
+                    },
+                    "document": {
+                        "field": "John",
+                        "field": "Doe"
+                    }
+                } 
+            }
+        }
+    ]
+}
