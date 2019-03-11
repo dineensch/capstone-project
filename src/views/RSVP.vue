@@ -1,22 +1,32 @@
 <template>
-  <b-row>
-    <b-col cols="12">
-      <h2>RSVP</h2>
-      <b-table striped hover :items="boards" :fields="fields">
-        <template slot="actions" scope="row">
-          <b-btn size="sm" @click.stop="details(row.item)">Edit</b-btn>
-        </template>
-      </b-table>
-    </b-col>
-  </b-row>
+  <span>
+    <nav-bar></nav-bar>
+    <page-hero></page-hero>
+    <b-row>
+      <b-col cols="12">
+        <h2>RSVP</h2>
+        <b-table striped hover :items="boards" :fields="fields">
+          <template slot="actions" scope="row">
+            <b-btn size="sm" @click.stop="details(row.item)">Edit</b-btn>
+          </template>
+        </b-table>
+      </b-col>
+    </b-row>
+  </span>
 </template>
 
 <script>
 import firebase from "../firebase";
 import router from "../router";
+import NavBar from "@/components/NavBar";
+import PageHero from "@/components/PageHero";
 
 export default {
   name: "RSVP",
+  components: {
+    NavBar,
+    PageHero
+  },
   data() {
     return {
       fields: {

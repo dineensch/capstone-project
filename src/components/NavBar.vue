@@ -5,7 +5,6 @@
     <b-navbar-brand to="/">Home</b-navbar-brand>
 
     <b-collapse is-nav id="nav_collapse">
-      <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
         <b-navbar-nav fixed="top" active>
           <b-nav-item to="/RSVP">RSVP</b-nav-item>
@@ -21,7 +20,21 @@
 export default {
   name: "NavBar",
   data() {
-    return {};
+    return {
+      drawer: false,
+      items: [
+        { title: "RSVP", routeUrl: "/RSVP" },
+        { title: "FAQs", routeUrl: "/faqs" },
+        { title: "The Team", routeUrl: "/theteam" }
+      ]
+    };
   }
 };
 </script>
+
+<style scoped>
+a {
+  color: white;
+  text-decoration: none;
+}
+</style>

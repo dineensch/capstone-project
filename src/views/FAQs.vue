@@ -1,19 +1,24 @@
 <template>
-  <div>
-    <b-jumbotron bg-variant="light" text-variant="black" border-variant="light">
-      <template slot="header">FAQs</template>
-      <hr class="my-4">
-    </b-jumbotron>
-  </div>
+  <span>
+    <nav-bar></nav-bar>
+    <page-hero></page-hero>
+  </span>
 </template>
 
 <script>
-import { API } from "@/common/api";
+import NavBar from "@/components/NavBar";
+import PageHero from "@/components/PageHero";
 
 export default {
   name: "FAQs",
+  components: {
+    NavBar,
+    PageHero
+  },
+
   data() {
     return {
+      pageTitle: "FAQs",
       results: null,
       name1: "",
       name2: "",
@@ -36,7 +41,7 @@ export default {
         this.oneRSVP = false;
       }
     }
-  },
+  }
 };
 </script>
 
