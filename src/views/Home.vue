@@ -98,7 +98,7 @@
 import firebase from "firebase";
 import router from "../router";
 import NavBar from "@/components/NavBar";
-import jumbotron from "@/components/jumbotron";
+import carousel from "@/components/carousel";
 
 export default {
   name: "Home",
@@ -129,7 +129,7 @@ export default {
       success: false,
       name1: "",
       name2: "",
-      code: ""
+      code: "",
     };
   },
   created() {

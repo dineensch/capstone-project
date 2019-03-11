@@ -1,17 +1,28 @@
 <template>
-  <v-container fluid fill-height class="page-hero" style="max-height:70vh;">
-    <v-layout justify-center align-center column pa-5>
-      <div
-        class="display-4 font-weight-black white--text text-xs-center"
-        v-text="pageTitle"
-      >PAGE TITLE</div>
-      <div class="display-1 font-weight-bold white--text text-xs-center">Page description goes here.</div>
-      <v-btn fab class="mt-5 brown darken-4">
-        <v-icon large color="white">expand_more</v-icon>
-      </v-btn>
-    </v-layout>
-  </v-container>
+<v-jumbotron>
+      <v-container fill-height>
+        <v-layout align-center>
+          <v-flex>
+            <h3 class="display-3">Page Title</h3>
+            <v-divider class="my-3"></v-divider>
+            <span class="subheading">Lorem ipsum dolor sit amet, pri veniam forensibus id. Vis maluisset molestiae id, ad semper lobortis cum. At impetus detraxit incorrupte usu, repudiare assueverit ex eum, ne nam essent vocent admodum.</span>
+  
+  
+            <v-btn
+              class="mx-0"
+              color="primary"
+              large
+            >
+              See more
+            </v-btn>
+          </v-flex>
+        </v-layout>
+      </v-container>
+    </v-jumbotron>
 </template>
+
+
+carousel
 
 <script>
 export default {
