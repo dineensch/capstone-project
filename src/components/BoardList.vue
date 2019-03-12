@@ -29,29 +29,29 @@ export default {
       },
       boards: [],
       errors: [],
-      ref: firebase.firestore().collection("boards")
+      // ref: firebase.firestore().collection("boards")
     };
   },
-  created() {
-    this.ref.onSnapshot(querySnapshot => {
-      this.boards = [];
-      querySnapshot.forEach(doc => {
-        this.boards.push({
-          key: doc.id,
-          name: doc.data().name,
-          guest: doc.data().guest,
-          rsvp: doc.data().rsvp
-        });
-      });
-    });
-  },
-  methods: {
-    details(board) {
-      router.push({ name: "ShowBoard", params: { id: board.key } });
-      router.push({ guest: "ShowBoard", params: { id: board.key } });
-      router.push({ rsvp: "ShowBoard", params: { id: board.key } });
-    }
-  }
+  // created() {
+  //   this.ref.onSnapshot(querySnapshot => {
+  //     this.boards = [];
+  //     querySnapshot.forEach(doc => {
+  //       this.boards.push({
+  //         key: doc.id,
+  //         name: doc.data().name,
+  //         guest: doc.data().guest,
+  //         rsvp: doc.data().rsvp
+  //       });
+  //     });
+  //   });
+  // },
+  // methods: {
+  //   details(board) {
+  //     router.push({ name: "ShowBoard", params: { id: board.key } });
+  //     router.push({ guest: "ShowBoard", params: { id: board.key } });
+  //     router.push({ rsvp: "ShowBoard", params: { id: board.key } });
+  //   }
+  // }
 };
 </script>
 

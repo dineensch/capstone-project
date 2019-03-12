@@ -1,28 +1,25 @@
 <template>
-<v-jumbotron>
-      <v-container fill-height>
-        <v-layout align-center>
-          <v-flex>
-            <h3 class="display-3">Page Title</h3>
-            <v-divider class="my-3"></v-divider>
-            <span class="subheading">Lorem ipsum dolor sit amet, pri veniam forensibus id. Vis maluisset molestiae id, ad semper lobortis cum. At impetus detraxit incorrupte usu, repudiare assueverit ex eum, ne nam essent vocent admodum.</span>
-  
-  
-            <v-btn
-              class="mx-0"
-              color="primary"
-              large
-            >
-              See more
-            </v-btn>
-          </v-flex>
-        </v-layout>
-      </v-container>
-    </v-jumbotron>
+<span>
+
+    <v-container>
+      <v-layout row wrap>
+        <v-flex xs12>
+          <v-card dark color="primary">
+            <v-card-text class="px-0">Title</v-card-text>
+          </v-card>
+        </v-flex>
+        <v-flex xs6>
+          <v-card dark color="secondary">
+            <v-card-text class="px-0">Subtitle</v-card-text>
+          </v-card>
+        </v-flex>
+      <v-spacer></v-spacer>
+
+    <v-container>
+
+</span>
 </template>
 
-
-carousel
 
 <script>
 export default {
