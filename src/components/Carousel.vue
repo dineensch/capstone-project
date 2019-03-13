@@ -1,34 +1,70 @@
 <template>
-  <div>
+<div>
+    <b-carousel
+      id="carousel1"
+      style="text-shadow: 1px 1px 2px #333;"
+      fade
+      controls
+      indicators
+      background="#ababab"
+      :interval="4000"
+      img-width="1024"
+      img-height="480"
+      v-model="slide"
+      @sliding-start="onSlideStart"
+      @sliding-end="onSlideEnd"
+    >
+      <b-carousel-slide alt="image 1" img-src="https://picsum.photos/1024/480/?image=52"/>
+      <b-carousel-slide alt="image 2" img-src="https://picsum.photos/1024/480/?image=54"/>
+      <b-carousel-slide alt="image 3" img-src="https://picsum.photos/1024/480/?image=58" />
+
+      <!-- Slides with img slot -->
+      <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
+      <b-carousel-slide>
+        <img
+          slot="img"
+          class="d-block img-fluid w-100"
+          width="1024"
+          height="480"
+          src="https://picsum.photos/1024/480/?image=55"
+          alt="image slot"
+        />
+      </b-carousel-slide>
+    </b-carousel>
+
+    <p class="mt-4">
+      Slide #: {{ slide }}<br />
+      Sliding: {{ sliding }}
+    </p>
+  </div>
+
+  <!-- <div>
     <v-carousel>
       <v-carousel-item v-for="(item,i) in items" :key="i" :src="item.src"></v-carousel-item>
     </v-carousel>
-  </div>
+  </div> -->
+
 </template>
 
 
 <script>
 export default {
   name: "Carousel",
-  data() {
-    return {
-      items: [
-        {
-          src: "https://picsum.photos/670/315/?image=52"
-        },
-        {
-          src: "https://picsum.photos/670/315/?image=54"
-        },
-        {
-          src: "https://picsum.photos/670/315/?image=58"
-        },
-        {
-          src: "https://picsum.photos/670/315/?image=55"
-        }
-      ]
-    };
+    data() {
+      return {
+        slide: 0,
+        sliding: null
+      }
+    },
+    methods: {
+      onSlideStart(slide) {
+        this.sliding = true
+      },
+      onSlideEnd(slide) {
+        this.sliding = false
+      }
+    }
   }
-};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
