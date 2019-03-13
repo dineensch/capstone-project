@@ -2,45 +2,8 @@
   <span>
     <nav-bar></nav-bar>
     <page-hero></page-hero>
-    <div>
-      <v-flex xs12 sm6>
-        <v-card>
-          <v-container fluid grid-list-md>
-            <v-layout row wrap>
-              <v-flex v-for="card in cards" :key="card.title" v-bind="{ [`xs${card.flex}`]: true }">
-                <v-card>
-                  <v-img src="https://cdn.vuetifyjs.com/images/cards/house.jpg" height="200px">
-                    <!-- <v-container fill-height fluid pa-2>
-                    <v-layout fill-height>
-                      <v-flex xs12 align-end flexbox>
-                        <span class="headline white--text" v-text="card.title"></span>
-                      </v-flex>
-                    </v-layout>
-                    </v-container>-->
-                  </v-img>
-
-                  <v-card-actions>
-                    <v-spacer></v-spacer>
-                    <v-btn icon>
-                      <v-icon>favorite</v-icon>
-                    </v-btn>
-                    <v-btn icon>
-                      <v-icon>bookmark</v-icon>
-                    </v-btn>
-                    <v-btn icon>
-                      <v-icon>share</v-icon>
-                    </v-btn>
-                  </v-card-actions>
-                </v-card>
-              </v-flex>
-            </v-layout>
-          </v-container>
-        </v-card>
-      </v-flex>
-    </div>
   </span>
 </template>
-
 
 <script>
 import NavBar from "@/components/NavBar";
@@ -52,8 +15,10 @@ export default {
     NavBar,
     PageHero
   },
+
   data() {
     return {
+      pageTitle: "The Team",
       results: null,
       name1: "",
       name2: "",

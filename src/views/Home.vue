@@ -1,7 +1,7 @@
 <template>
   <span>
     <nav-bar></nav-bar>
-    <jumbotron></jumbotron>
+    <carousel></carousel>
     <div v-show="success">
       <b-alert show dismissible fade variant="dark">RSVP Successfully Submitted.</b-alert>
     </div>
@@ -98,13 +98,13 @@
 import firebase from "firebase";
 import router from "../router";
 import NavBar from "@/components/NavBar";
-import jumbotron from "@/components/jumbotron";
+import Carousel from "@/components/Carousel";
 
 export default {
   name: "Home",
   components: {
     NavBar,
-    jumbotron
+    Carousel
   },
   data() {
     return {
