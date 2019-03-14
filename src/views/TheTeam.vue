@@ -1,8 +1,59 @@
 <template>
-  <span>
+  <div>
     <nav-bar></nav-bar>
     <page-hero></page-hero>
-  </span>
+
+    <b-container>
+      <div>
+        <b-card-group deck>
+          <b-card fluid class="mx-auto">
+            <b-card-img src="https://picsum.photos/300/300/?image=41" alt="image" top class="mb-3"/>
+            <b-button v-b-toggle.collapseA.collapseB>Jane Doe</b-button>
+            <b-collapse id="collapseA" class="mt-2">
+              <b-card-text>
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
+                brunch.
+              </b-card-text>
+              <b-card-text class="text-muted">Mother of the Bride</b-card-text>
+            </b-collapse>
+          </b-card>
+
+          <b-card
+            title="John Doe"
+            img-src="https://picsum.photos/300/300/?image=41"
+            img-alt="Image"
+            img-top
+          >
+            <b-card-text>
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+              richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
+              brunch.
+            </b-card-text>
+            <div slot="footer">
+              <p class="text-muted">Father of the Bride</p>
+            </div>
+          </b-card>
+
+          <b-card
+            title="Jenny Doe"
+            img-src="https://picsum.photos/300/300/?image=41"
+            img-alt="Image"
+            img-top
+          >
+            <b-card-text>
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+              richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
+              brunch.
+            </b-card-text>
+            <div slot="footer">
+              <p class="text-muted">Sister of the Bride</p>
+            </div>
+          </b-card>
+        </b-card-group>
+      </div>
+    </b-container>
+  </div>
 </template>
 
 <script>
@@ -14,58 +65,23 @@ export default {
   components: {
     NavBar,
     PageHero
-  },
-
-  data() {
-    return {
-      pageTitle: "The Team",
-      results: null,
-      name1: "",
-      name2: "",
-      code: "",
-      oneRSVP: true,
-      showForm: false,
-      success: false
-    };
-  },
-  methods: {
-    validateForm: function() {
-      if (this.name1 != "" && this.code != "" && this.code < 5) {
-        console.log("Guest does not have a +1.");
-        this.showForm = false;
-        this.oneRSVP = true;
-        this.success = true;
-      } else {
-        console.log("Guest has a +1. Show 2nd Form.");
-        this.showForm = true;
-        this.oneRSVP = false;
-      }
-    }
   }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1,
-h2 {
-  font-weight: normal;
+.icon {
+  background: url("https://picsum.photos/300/300/?image=41");
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
+.card-img-top {
+  border-radius: 50% !important;
 }
-li {
-  display: inline-block;
-  width: 300px;
-  min-height: 300px;
-  border: solid 1px #e8e8e8;
-  padding: 10px;
-  margin: 5px;
-}
-a {
-  color: #42b983;
+
+.card {
+  background-color: transparent;
+  border: none;
 }
 </style>
 
