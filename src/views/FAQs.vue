@@ -18,7 +18,7 @@
 		<b-container>
 			<!-- Attire Accordian 1 -->
 			<div role="tablist" class="mt-5 mb-1">
-				<h4 id="attire">Attire</h4>
+				<h1 id="attire">Attire</h1>
 				<b-card no-body class="mb-1">
 					<b-card-header
 						header-tag="header"
@@ -80,8 +80,8 @@
 
 		<!-- VENUE ACCORDION -->
 		<b-container>
-			<div role="tablist" class="mt-5 mb-1">
-				<h4 id="venue">Venue</h4>
+			<div role="tablist" class="font-size mt-5 mb-1">
+				<h1 id="venue">Venue</h1>
 				<b-card no-body class="mb-1">
 					<b-card-header
 						header-tag="header"
@@ -140,7 +140,7 @@
 		<!-- Accomodations ACCORDION -->
 		<b-container>
 			<div role="tablist" class="mt-5 mb-1">
-				<h4 id="Accomodations">Accomodations</h4>
+				<h1 id="Accomodations">Accomodations</h1>
 				<b-card no-body class="mb-1">
 					<b-card-header
 						header-tag="header"
@@ -213,6 +213,15 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+a.btn,
+div.card-body {
+	font-size: 30px;
+}
+
+h1,
+.h1 {
+	font-size: 3.5rem;
+}
 </style>
 
 

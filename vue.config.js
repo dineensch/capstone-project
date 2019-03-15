@@ -19,6 +19,7 @@ module.exports = {
   outputDir: "./docs/",
   assetsDir: "assets",
   devServer: {
-    proxy: 'http://localhost:8080'
+    port: 8080,
+    open: true
   }
 };

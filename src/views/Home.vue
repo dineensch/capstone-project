@@ -1,95 +1,101 @@
 <template>
-  <span>
-    <nav-bar></nav-bar>
-    <carousel></carousel>
-    <div v-show="success">
-      <b-alert show dismissible fade variant="dark">RSVP Successfully Submitted.</b-alert>
-    </div>
+	<div>
+		<nav-bar></nav-bar>
+		<carousel></carousel>
+		<div v-show="success">
+			<b-alert show dismissible fade variant="dark"
+				>RSVP Successfully Submitted.</b-alert
+			>
+		</div>
+		<b-container>
+			<h2 class="my-4 font-weight-bold">RSVP</h2>
 
-    <section>
-      <h2 class="my-4 font-weight-bold">RSVP</h2>
+			<!------------- FORM 1 ------------------->
+			<div class="mb-5 mx-1">
+				<h5 class="font-weight-bold">Form 1 Logic</h5>
+				<hr class="mt-0" />
+				<p>
+					Enter a code number less than 5 for option 1. Enter a number greater
+					than 5 to display the second form.
+				</p>
+				<div>
+					<b-form inline v-on:submit.prevent="validateForm1">
+						<label class="sr-only" for="form1Name"></label>
+						<b-input
+							v-model="form1Name"
+							class="mb-2 mr-sm-2 mb-sm-0"
+							id="form1Name"
+							placeholder="Name"
+						/>
 
-      <!------------- FORM 1 ------------------->
-      <div class="mb-5 mx-1">
-        <h5 class="font-weight-bold">Form 1 Logic</h5>
-        <hr class="mt-0">
-        <p>Enter a code number less than 5 for option 1. Enter a number greater than 5 to display the second form.</p>
-        <div>
-          <b-form inline v-on:submit.prevent="validateForm1">
-            <label class="sr-only" for="form1Name"></label>
-            <b-input
-              v-model="form1Name"
-              class="mb-2 mr-sm-2 mb-sm-0"
-              id="form1Name"
-              placeholder="Name"
-            />
+						<label class="sr-only" for="form1Code"></label>
+						<b-input
+							left="@"
+							class="mb-2 mr-sm-2 mb-sm-0"
+							v-model="form1Code"
+							id="form1Code"
+							placeholder="Code"
+						/>
 
-            <label class="sr-only" for="form1Code"></label>
-            <b-input
-              left="@"
-              class="mb-2 mr-sm-2 mb-sm-0"
-              v-model="form1Code"
-              id="form1Code"
-              placeholder="Code"
-            />
+						<b-btn v-show="oneRSVP" type="submit" variant="dark" class="m-1"
+							>RSVP</b-btn
+						>
+					</b-form>
+				</div>
 
-            <b-btn v-show="oneRSVP" type="submit" variant="dark" class="m-1">RSVP</b-btn>
-          </b-form>
-        </div>
+				<!-- HIDDEN RSVP FORM -->
+				<div v-show="showForm">
+					<b-form inline v-on:submit.prevent="validateForm2">
+						<label class="sr-only" for="form1Name2">Guest Name</label>
+						<b-input
+							v-model="form1Name2"
+							class="mb-2 mr-sm-2 mb-sm-0"
+							id="fform1Name2"
+							placeholder="Guest Name"
+						/>
+						<b-btn type="submit" variant="dark" class="m-1">RSVP</b-btn>
+					</b-form>
+				</div>
+			</div>
 
-        <!-- HIDDEN RSVP FORM -->
-        <div v-show="showForm">
-          <b-form inline v-on:submit.prevent="validateForm2">
-            <label class="sr-only" for="form1Name2">Guest Name</label>
-            <b-input
-              v-model="form1Name2"
-              class="mb-2 mr-sm-2 mb-sm-0"
-              id="fform1Name2"
-              placeholder="Guest Name"
-            />
-            <b-btn type="submit" variant="dark" class="m-1">RSVP</b-btn>
-          </b-form>
-        </div>
-      </div>
+			<!--------- FORM 2: AUTH FROM FIREBASE ---------->
+			<div class="my-5 mx-1">
+				<h5 class="font-weight-bold">Form 2 Logic</h5>
+				<hr class="mt-0" />
+				<p>
+					<span class="font-weight-bold">Name:</span> test@example.com
+					<span class="font-weight-bold">Code:</span> vuetest
+				</p>
 
-      <!--------- FORM 2: AUTH FROM FIREBASE ---------->
-      <div class="my-5 mx-1">
-        <h5 class="font-weight-bold">Form 2 Logic</h5>
-        <hr class="mt-0">
-        <p>
-          <span class="font-weight-bold">Name:</span> test@example.com
-          <span class="font-weight-bold">Code:</span> vuetest
-        </p>
+				<!-- RSVP FORM  -->
+				<div>
+					<b-form inline v-on:submit.prevent="validateForm">
+						<label class="sr-only" for="name1"></label>
+						<b-input
+							type="text"
+							v-model="name1"
+							class="mb-2 mr-sm-2 mb-sm-0"
+							id="name1"
+							placeholder="Name"
+						/>
 
-        <!-- RSVP FORM  -->
-        <div>
-          <b-form inline v-on:submit.prevent="validateForm">
-            <label class="sr-only" for="name1"></label>
-            <b-input
-              type="text"
-              v-model="name1"
-              class="mb-2 mr-sm-2 mb-sm-0"
-              id="name1"
-              placeholder="Name"
-            />
+						<label class="sr-only" for="code"></label>
 
-            <label class="sr-only" for="code"></label>
+						<b-input
+							type="password"
+							left="@"
+							class="mb-2 mr-sm-2 mb-sm-0"
+							v-model="code"
+							id="code"
+							placeholder="Code"
+						/>
 
-            <b-input
-              type="password"
-              left="@"
-              class="mb-2 mr-sm-2 mb-sm-0"
-              v-model="code"
-              id="code"
-              placeholder="Code"
-            />
-
-            <b-btn type="submit" variant="dark" class="m-1">RSVP</b-btn>
-          </b-form>
-        </div>
-      </div>
-    </section>
-  </span>
+						<b-btn type="submit" variant="dark" class="m-1">RSVP</b-btn>
+					</b-form>
+				</div>
+			</div>
+		</b-container>
+	</div>
 </template>
 
 
@@ -101,87 +107,87 @@ import NavBar from "@/components/NavBar";
 import Carousel from "@/components/Carousel";
 
 export default {
-  name: "Home",
-  components: {
-    NavBar,
-    Carousel
-  },
-  data() {
-    return {
-      fields: {
-        guestName: { label: "Name" },
-        addGuest: { label: "Guest Name" },
-        guest: { label: "Guest", class: "text-left" },
-        actions: { label: "RSVP", class: "text-center" }
-      },
-      boards: [],
-      errors: [],
-      ref: firebase.firestore().collection("users"),
-      guests: [],
-      results: null,
-      slide: 0,
-      sliding: null,
-      form1Name: "",
-      form1Name2: "",
-      form1Code: "",
-      oneRSVP: true,
-      showForm: false,
-      success: false,
-      name1: "",
-      name2: "",
-      code: ""
-    };
-  },
-  created() {
-    this.ref.onSnapshot(querySnapshot => {
-      this.boards = [];
-      querySnapshot.forEach(doc => {
-        this.boards.push({
-          key: doc.id,
-          guest: doc.data().guest
-        });
-      });
-    });
-  },
-  methods: {
-    validateForm: function() {
-      firebase
-        .auth()
-        .signInWithEmailAndPassword(this.name1, this.code)
-        .then(
-          function(user) {
-            alert("You are now logged in!");
-          },
-          function(err) {
-            alert("Oops! " + err.message);
-          }
-        );
-    },
+	name: "Home",
+	components: {
+		NavBar,
+		Carousel
+	},
+	data() {
+		return {
+			fields: {
+				guestName: { label: "Name" },
+				addGuest: { label: "Guest Name" },
+				guest: { label: "Guest", class: "text-left" },
+				actions: { label: "RSVP", class: "text-center" }
+			},
+			boards: [],
+			errors: [],
+			ref: firebase.firestore().collection("users"),
+			guests: [],
+			results: null,
+			slide: 0,
+			sliding: null,
+			form1Name: "",
+			form1Name2: "",
+			form1Code: "",
+			oneRSVP: true,
+			showForm: false,
+			success: false,
+			name1: "",
+			name2: "",
+			code: ""
+		};
+	},
+	created() {
+		this.ref.onSnapshot(querySnapshot => {
+			this.boards = [];
+			querySnapshot.forEach(doc => {
+				this.boards.push({
+					key: doc.id,
+					guest: doc.data().guest
+				});
+			});
+		});
+	},
+	methods: {
+		validateForm: function() {
+			firebase
+				.auth()
+				.signInWithEmailAndPassword(this.name1, this.code)
+				.then(
+					function(user) {
+						alert("You are now logged in!");
+					},
+					function(err) {
+						alert("Oops! " + err.message);
+					}
+				);
+		},
 
-    validateForm1: function() {
-      if (this.formName1 != "" && this.form1Code != "" && this.form1Code < 5) {
-        console.log("Guest does not have a +1.");
-        this.showForm = false;
-        this.oneRSVP = true;
-        this.success = true;
-      } else {
-        console.log("Guest has a +1. Show 2nd Form.");
-        this.showForm = true;
-        this.oneRSVP = false;
-      }
-    },
+		validateForm1: function() {
+			if (this.formName1 != "" && this.form1Code != "" && this.form1Code < 5) {
+				console.log("Guest does not have a +1.");
+				this.showForm = false;
+				this.oneRSVP = true;
+				this.success = true;
+			} else {
+				console.log("Guest has a +1. Show 2nd Form.");
+				this.showForm = true;
+				this.oneRSVP = false;
+			}
+		},
 
-    onSlideStart(slide) {
-      this.sliding = true;
-    },
-    onSlideEnd(slide) {
-      this.sliding = false;
-    },
+		onSlideStart(slide) {
+			this.sliding = true;
+		},
+		onSlideEnd(slide) {
+			this.sliding = false;
+		},
 
-    details(board) {
-      router.push({ name: "ShowForm", params: { id: board.key } });
-    }
-  }
+		details(board) {
+			router.push({ name: "ShowForm", params: { id: board.key } });
+		}
+	}
 };
 </script>
 
@@ -189,39 +195,39 @@ export default {
 <style scoped>
 h1,
 h2 {
-  font-weight: normal;
+	font-weight: normal;
 }
 
 ul {
-  list-style-type: none;
-  padding: 0;
+	list-style-type: none;
+	padding: 0;
 }
 li {
-  display: inline-block;
-  width: 300px;
-  min-height: 300px;
-  border: solid 1px #e8e8e8;
-  padding: 10px;
-  margin: 5px;
+	display: inline-block;
+	width: 300px;
+	min-height: 300px;
+	border: solid 1px #e8e8e8;
+	padding: 10px;
+	margin: 5px;
 }
 a {
-  color: #42b983;
+	color: #42b983;
 }
 
 .carousel-section {
-  position: relative;
+	position: relative;
 }
 
 .middle-left {
-  position: absolute;
-  color: white;
-  margin: auto 0;
-  top: 25%;
-  font-size: 50px;
-  background-color: rgba(0, 0, 0, 0.6);
-  width: 100%;
-  height: 100px;
-  z-index: 20;
+	position: absolute;
+	color: white;
+	margin: auto 0;
+	top: 25%;
+	font-size: 50px;
+	background-color: rgba(0, 0, 0, 0.6);
+	width: 100%;
+	height: 100px;
+	z-index: 20;
 }
 </style>
 
