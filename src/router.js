@@ -2,7 +2,6 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import BoardList from '@/components/BoardList';
 import ShowBoard from '@/components/ShowBoard';
-import AddBoard from '@/components/AddBoard';
 import EditBoard from '@/components/EditBoard';
 import Home from '@/views/Home';
 import RSVP from '@/views/RSVP';
@@ -13,8 +12,7 @@ import ShowForm from '@/components/ShowForm';
 Vue.use(Router);
 
 export default new Router({
-  routes: [
-    {
+  routes: [{
       path: '*',
       redirect: '/'
     },
@@ -27,19 +25,25 @@ export default new Router({
       path: '/RSVP',
       name: 'RSVP',
       component: RSVP,
-      meta: { title: 'RSVP' }
+      meta: {
+        title: 'RSVP'
+      }
     },
     {
       path: '/faqs',
       name: 'FAQs',
       component: FAQs,
-      meta: { title: 'FAQs' }
+      meta: {
+        title: 'FAQs'
+      }
     },
     {
       path: '/theteam',
       name: 'The Team',
       component: TheTeam,
-      meta: { title: 'The Team' }
+      meta: {
+        title: 'The Team'
+      }
     },
     {
       path: '/show-form/:id',
@@ -58,11 +62,6 @@ export default new Router({
       path: '/',
       name: 'BoardList',
       component: BoardList
-    },
-    {
-      path: '/add-board',
-      name: 'AddBoard',
-      component: AddBoard
     },
     {
       path: '/edit-board/:id',
