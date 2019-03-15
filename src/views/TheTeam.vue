@@ -4,97 +4,87 @@
     <page-hero></page-hero>
     <b-container>
       <b-row>
+        <!-- COLUMN 1 -->
         <b-col>
-          <!-- CARD 1 -->
-          <b-container>
-            <div id="flip">
-              <transition name="card" mode="out-in">
-                <!-- FRONT OF CARD -->
-                <div class="card" v-if="front == true" key="front">
-                  <b-button class="btn-flip" @click="front = false">
-                    <div class="card-content">
-                      <b-img
-                        rounded="circle"
-                        src="https://picsum.photos/300/300/?image=41"
-                        alt="image"
-                        top
-                        class="mb-3"
-                      />
-                      <h3>Jane Doe</h3>
-                      <span>View More</span>
-                    </div>
-                    <!-- End of card-content -->
-                  </b-button>
-                </div>
-                <!-- BACK OF CARD -->
-                <div class="card" v-else key="back">
-                  <b-button class="btn-flip" @click="front = true">
-                    <div class="card-content">
-                      <b-img
-                        rounded="circle"
-                        src="https://picsum.photos/300/300/?image=41"
-                        alt="image"
-                        top
-                        class="mb-3"
-                      />
-                      <h3>Jane Doe</h3>
-                      <span>View More</span>
-                    </div>
-                    <!-- End of card-content -->
-                  </b-button>
-                </div>
-              </transition>
-            </div>
-          </b-container>
+          <div id="flip">
+            <transition name="card" mode="out-in">
+              <!-- FRONT OF CARD -->
+              <div class="card" v-if="front == true" key="front">
+                <b-button class="btn-flip" @click="front = false">
+                  <div class="card-content">
+                    <b-img
+                      rounded="circle"
+                      src="https://picsum.photos/300/300/?image=41"
+                      alt="image"
+                      fluid
+                      class="mb-3"
+                    />
+                    <h3>Jane Doe</h3>
+                    <span>View More</span>
+                  </div>
+                </b-button>
+              </div>
+              <!-- BACK OF CARD -->
+              <div class="card" v-else key="back">
+                <b-button class="btn-flip" @click="front = true">
+                  <div class="card-content">
+                    <b-img
+                      rounded="circle"
+                      src="https://picsum.photos/300/300/?image=41"
+                      alt="image"
+                      fluid
+                      class="mb-3"
+                    />
+                    <h3>Back</h3>
+                    <span>View More</span>
+                  </div>
+                </b-button>
+              </div>
+            </transition>
+          </div>
         </b-col>
-        <!--END CARD 1 -->
-        <!-- CARD 2 -->
         <b-col>
-          <b-container>
-            <div id="flip">
-              <transition name="card" mode="out-in">
-                <!-- FRONT OF CARD -->
-                <div class="card" v-if="front2 == true" key="front2">
-                  <b-button class="btn-flip" @click="front2 = false">
-                    <div class="card-content">
-                      <b-img
-                        rounded="circle"
-                        src="https://picsum.photos/300/300/?image=41"
-                        alt="image"
-                        top
-                        class="mb-3"
-                      />
-                      <h3>Jane Doe</h3>
-                      <span>View More</span>
-                    </div>
-                    <!-- End of card-content -->
-                  </b-button>
-                </div>
-                <!-- BACK OF CARD -->
-                <div class="card" v-else key="back">
-                  <b-button class="btn-flip" @click="front2 = true">
-                    <div class="card-content">
-                      <b-img
-                        rounded="circle"
-                        src="https://picsum.photos/300/300/?image=41"
-                        alt="image"
-                        top
-                        class="mb-3"
-                      />
-                      <h3>Jane Doe</h3>
-                      <span>View More</span>
-                    </div>
-                    <!-- End of card-content -->
-                  </b-button>
-                </div>
-              </transition>
-            </div>
-          </b-container>
+          <div id="flip">
+            <transition name="card" mode="out-in">
+              <!-- FRONT OF CARD -->
+              <div class="card" v-if="front == true" key="front">
+                <b-button class="btn-flip" @click="front = false">
+                  <div class="card-content">
+                    <b-img
+                      rounded="circle"
+                      src="https://picsum.photos/300/300/?image=41"
+                      alt="image"
+                      fluid
+                      class="mb-3"
+                    />
+                    <h3>Jane Doe</h3>
+                    <span>View More</span>
+                  </div>
+                </b-button>
+              </div>
+              <!-- BACK OF CARD -->
+              <div class="card" v-else key="back">
+                <b-button class="btn-flip" @click="front = true">
+                  <div class="card-content">
+                    <b-img
+                      rounded="circle"
+                      src="https://picsum.photos/300/300/?image=41"
+                      alt="image"
+                      fluid
+                      class="mb-3"
+                    />
+                    <h3>Back</h3>
+                    <span>View More</span>
+                  </div>
+                </b-button>
+              </div>
+            </transition>
+          </div>
         </b-col>
-        <!-- END CARD 1 -->
       </b-row>
     </b-container>
   </div>
+  <!--END CARD 1 -->
 </template>
 
 <script>
@@ -127,10 +117,6 @@ export default {
 	background: url("https://picsum.photos/300/300/?image=41");
 } */
 
-.card-img-top {
-  border-radius: 50% !important;
-}
-
 /* .card {
 	background-color: transparent;
 	border: none;
@@ -148,27 +134,14 @@ export default {
 }
 
 .card {
-  width: 300px;
-  height: 210px;
   text-align: center;
   background-color: transparent !important;
   border-color: transparent !important;
 }
 
-.card-back {
-  border-radius: 50% !important;
-  background: url("https://picsum.photos/300/300/?image=41");
-  width: 275px;
-  height: 275px;
-  text-align: center;
-}
-
 .card-content {
   color: black;
-  border-radius: 50% !important;
-  width: 275px;
-  height: 275px;
-  background-color: rgba(0, 0, 0, 0.5);
+  /* background-color: rgba(0, 0, 0, 0.5); */
 }
 
 h1,
@@ -178,22 +151,6 @@ h2 {
 
 .txt-wh {
   color: white;
-}
-
-.form {
-  width: 270px;
-  height: 120px;
-  background-color: green;
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.footer {
-  margin-top: 10px;
-  margin-right: 15px;
-  text-align: right;
 }
 
 .card-enter,
