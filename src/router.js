@@ -12,7 +12,8 @@ import ShowForm from '@/components/ShowForm';
 Vue.use(Router);
 
 export default new Router({
-  routes: [{
+  routes: [
+    {
       path: '*',
       redirect: '/'
     },
@@ -25,6 +26,7 @@ export default new Router({
       path: '/RSVP',
       name: 'RSVP',
       component: RSVP,
+      linkExactActiveClass: 'is-active',
       meta: {
         title: 'RSVP'
       }

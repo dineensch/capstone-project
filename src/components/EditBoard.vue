@@ -29,7 +29,7 @@
               </b-row>
             </b-form-group>
             <b-button type="submit" variant="info">Update</b-button>
-            <b-btn variant="secondary" :to="{ name: 'ShowBoard', params: { id: key } }">Cancel</b-btn>
+            <b-btn variant="secondary" :to="{ name: 'RSVP', params: { id: key } }">Cancel</b-btn>
           </b-form>
         </b-jumbotron>
       </b-col>
@@ -89,7 +89,7 @@ export default {
           this.board.guest = "";
           this.board.rsvp2 = "";
           router.push({
-            name: "ShowBoard",
+            name: "RSVP",
             params: { id: this.$route.params.id }
           });
         })
