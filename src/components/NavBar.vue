@@ -1,5 +1,5 @@
 <template>
-  <b-container class="p-0 m-0 fluid">
+  <b-container fluid class="m-0 p-0">
     <b-navbar class="px-4 py-2 m-0" toggleable="lg" type="dark" variant="dark" sticky>
       <b-navbar-brand href="#/" class="nav-text">I Do With Vue</b-navbar-brand>
 
@@ -9,6 +9,7 @@
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
           <b-navbar-nav class="nav-text">
+            <b-nav-item href="#/venue">Venue</b-nav-item>
             <b-nav-item href="#/faqs">FAQs</b-nav-item>
             <b-nav-item href="#/theteam">The Team</b-nav-item>
             <b-nav-item href="#/RSVP">RSVP</b-nav-item>
@@ -26,6 +27,7 @@ export default {
     return {
       drawer: false,
       items: [
+        { title: "Venue", routeUrl: "/venue" },
         { title: "RSVP", routeUrl: "/RSVP" },
         { title: "FAQs", routeUrl: "/faqs" },
         { title: "The Team", routeUrl: "/join" }

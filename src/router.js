@@ -4,6 +4,7 @@ import BoardList from '@/components/BoardList';
 import ShowBoard from '@/components/ShowBoard';
 import EditBoard from '@/components/EditBoard';
 import Home from '@/views/Home';
+import Venue from '@/views/Venue';
 import RSVP from '@/views/RSVP';
 import FAQs from '@/views/FAQs';
 import TheTeam from '@/views/TheTeam';
@@ -21,6 +22,11 @@ export default new Router({
       path: '/',
       name: 'Home',
       component: Home
+    },
+    {
+      path: '/venue',
+      name: 'Venue',
+      component: Venue
     },
     {
       path: '/RSVP',
