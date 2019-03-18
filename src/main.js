@@ -7,6 +7,7 @@ import BootstrapVue from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import * as VueGoogleMaps from 'vue2-google-maps';
+import VueAnalytics from 'vue-analytics';
 
 Vue.config.productionTip = false;
 Vue.use(Router);
@@ -16,6 +17,10 @@ Vue.use(VueGoogleMaps, {
     key: 'AIzaSyC6pS6U906baXQ4vlqgjkiNZcwHvtgDvbk',
     libraries: 'places' // necessary for places input
   }
+});
+Vue.use(VueAnalytics, {
+  id: 'UA-136425516-1',
+  router
 });
 
 /* eslint-disable no-new */
