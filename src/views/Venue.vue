@@ -5,34 +5,23 @@
       <template v-slot:title>Venue</template>
       <template v-slot:body>Please see below for details regarding the venue</template>
     </page-hero>
-    <b-container fluid class="mt-3">
+    <b-container fluid class="mt-3 page-container">
       <b-container fluid>
         <b-row>
-          <b-col cols="12" class="text-center py-2 box1" order-md="1">
+          <b-col cols="12" class="text-left py-2 box1" order-md="1">
             <h1>Event Estates</h1>
           </b-col>
-          <b-col cols="12" class="box2 text-center" order-md="3">
-            <b-img src="https://picsum.photos/900/400?image=994" fluid alt="Venue Image"/>
+          <b-col cols="6" class="box2 text-left" order-md="3">
+            <b-img src="https://picsum.photos/900/500?image=994" fluid alt="Venue Image"/>
           </b-col>
-          <b-col
-            cols="12"
-            class="box3 text-center d-none d-sm-block py-2 d-sm-none d-md-block"
-            order-md="2"
-          >
-            <h2>About</h2>
-          </b-col>
-          <b-col cols="12" class="box4 px-5" order-md="4">
-            <p>
-              Anim pariatur cliche reprehenderit, enim eiusmod high life
-              accusamus terry richardson ad squid. 3 wolf moon officia aute, non
-              cupidatat skateboard dolor brunch.
-            </p>
+          <b-col cols="6" class="box3 pl-2 pr-3 text-left" order-md="3">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
           </b-col>
         </b-row>
       </b-container>
       <b-container fluid>
         <h2 class="text-center pt-5 pb-3">Location</h2>
-        <google-map></google-map>
+        <google-map class="map-edit text-center"></google-map>
       </b-container>
     </b-container>
   </div>
@@ -71,6 +60,9 @@ export default {
 h1 {
   color: black;
   font-size: 3.5rem;
+  font-family: brandon-grotesque, sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 h2 {
@@ -79,10 +71,15 @@ h2 {
 
 p {
   font-size: 2.5rem;
+  line-height: 1.5rem;
+  font-weight: 300;
+  font-family: brandon-grotesque, sans-serif;
+  font-weight: 300;
+  font-style: normal;
 }
 
 /* // Small devices (landscape phones, 576px and up) */
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 576px) {
   h1 {
     font-size: 2.5rem;
   }
@@ -90,20 +87,73 @@ p {
     font-size: 2rem;
   }
   p {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    line-height: 1.5;
   }
-  .box1,
   .box2,
-  .box3,
-  .box4 {
-    display: block;
+  .box3 {
     -webkit-box-flex: 0;
-    flex: 0 0 50%;
-    max-width: 50%;
-    position: relative;
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .box3 {
+    padding-right: 15px !important;
+    padding-left: 15px !important;
+    padding-top: 15px;
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media only screen and (min-width: 576px) and (max-width: 991.98px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  p {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    font-weight: 200;
+  }
+  .box2,
+  .box3 {
+    -webkit-box-flex: 0;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .box3 {
+    padding-right: 20px !important;
+    padding-left: 20px !important;
+    padding-top: 15px;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  p {
+    font-size: 1.3rem;
+    line-height: 1.3;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .page-container {
+    padding: 0px 150px 100px 150px;
+  }
+
+  p {
+    font-size: 1.3rem;
+    line-height: 1.52;
+  }
+  .box3 {
+    padding-right: 100px !important;
+  }
+
+  div.map-edit {
+    padding-right: 100px !important;
+    padding-left: 100px !important;
   }
 }
 </style>

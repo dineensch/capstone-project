@@ -1,101 +1,70 @@
 <template>
-	<div>
-		<nav-bar></nav-bar>
-		<carousel></carousel>
-		<div v-show="success">
-			<b-alert show dismissible fade variant="dark"
-				>RSVP Successfully Submitted.</b-alert
-			>
-		</div>
-		<b-container>
-			<h2 class="my-4 font-weight-bold">RSVP</h2>
+  <div>
+    <nav-bar></nav-bar>
+    <div class="page-content m-0 p-0 fluid">
+      <b-jumbotron class="page-hero m-0 p-0 fluid text-white">
+        <video preload muted fluid autoplay loop>
+          <source src="../assets/video-background.mp4" type="video/mp4">
+        </video>
+        <div class="shade"></div>
+        <div class="content">
+          <h1 class="header">Welcome to</h1>
+          <hr class="my-4 divider">
+          <h1 class="header">I Do With Vue</h1>
+          <b-btn variant="secondary" href="#anchor">View More</b-btn>
+        </div>
+      </b-jumbotron>
+      <b-container class="mt-5" id="anchor">
+        <div>
+          <b-card no-body style="max-width: 540px;">
+            <b-row>
+              <b-col md="6">
+                <b-card-img src="https://picsum.photos/400/400/?image=1055" class="rounded-0"/>
+              </b-col>
+              <b-col md="6">
+                <b-card-body title="Who We Are">
+                  <b-card-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</b-card-text>
+                </b-card-body>
+              </b-col>
+            </b-row>
+          </b-card>
+        </div>
 
-			<!------------- FORM 1 ------------------->
-			<div class="mb-5 mx-1">
-				<h5 class="font-weight-bold">Form 1 Logic</h5>
-				<hr class="mt-0" />
-				<p>
-					Enter a code number less than 5 for option 1. Enter a number greater
-					than 5 to display the second form.
-				</p>
-				<div>
-					<b-form inline v-on:submit.prevent="validateForm1">
-						<label class="sr-only" for="form1Name"></label>
-						<b-input
-							v-model="form1Name"
-							class="mb-2 mr-sm-2 mb-sm-0"
-							id="form1Name"
-							placeholder="Name"
-						/>
-
-						<label class="sr-only" for="form1Code"></label>
-						<b-input
-							left="@"
-							class="mb-2 mr-sm-2 mb-sm-0"
-							v-model="form1Code"
-							id="form1Code"
-							placeholder="Code"
-						/>
-
-						<b-btn v-show="oneRSVP" type="submit" variant="dark" class="m-1"
-							>RSVP</b-btn
-						>
-					</b-form>
-				</div>
-
-				<!-- HIDDEN RSVP FORM -->
-				<div v-show="showForm">
-					<b-form inline v-on:submit.prevent="validateForm2">
-						<label class="sr-only" for="form1Name2">Guest Name</label>
-						<b-input
-							v-model="form1Name2"
-							class="mb-2 mr-sm-2 mb-sm-0"
-							id="fform1Name2"
-							placeholder="Guest Name"
-						/>
-						<b-btn type="submit" variant="dark" class="m-1">RSVP</b-btn>
-					</b-form>
-				</div>
-			</div>
-
-			<!--------- FORM 2: AUTH FROM FIREBASE ---------->
-			<div class="my-5 mx-1">
-				<h5 class="font-weight-bold">Form 2 Logic</h5>
-				<hr class="mt-0" />
-				<p>
-					<span class="font-weight-bold">Name:</span> test@example.com
-					<span class="font-weight-bold">Code:</span> vuetest
-				</p>
-
-				<!-- RSVP FORM  -->
-				<div>
-					<b-form inline v-on:submit.prevent="validateForm">
-						<label class="sr-only" for="name1"></label>
-						<b-input
-							type="text"
-							v-model="name1"
-							class="mb-2 mr-sm-2 mb-sm-0"
-							id="name1"
-							placeholder="Name"
-						/>
-
-						<label class="sr-only" for="code"></label>
-
-						<b-input
-							type="password"
-							left="@"
-							class="mb-2 mr-sm-2 mb-sm-0"
-							v-model="code"
-							id="code"
-							placeholder="Code"
-						/>
-
-						<b-btn type="submit" variant="dark" class="m-1">RSVP</b-btn>
-					</b-form>
-				</div>
-			</div>
-		</b-container>
-	</div>
+        <div class="mt-5">
+          <b-card-group deck>
+            <b-card
+              title="RSVP"
+              img-src="https://picsum.photos/300/300/?image=999"
+              img-alt="Image"
+              img-top
+            >
+              <b-card-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</b-card-text>
+              <b-button variant="secondary" :to="{ name: 'RSVP'}">></b-button>
+            </b-card>
+            <b-card
+              title="FAQs"
+              img-src="https://picsum.photos/300/300/?image=998"
+              img-alt="Image"
+              img-top
+            >
+              <b-card-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</b-card-text>
+              <b-button variant="secondary" :to="{ name: 'FAQs'}">></b-button>
+            </b-card>
+            <b-card
+              title="Venue"
+              img-src="https://picsum.photos/300/300/?image=975"
+              img-alt="Image"
+              img-top
+            >
+              <b-card-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</b-card-text>
+              <b-button variant="secondary" :to="{ name: 'Venue'}">></b-button>
+            </b-card>
+            <!-- <b-card class="card-spacer"></b-card> -->
+          </b-card-group>
+        </div>
+      </b-container>
+    </div>
+  </div>
 </template>
 
 
@@ -104,131 +73,175 @@
 import firebase from "firebase";
 import router from "../router";
 import NavBar from "@/components/NavBar";
-import Carousel from "@/components/Carousel";
 
 export default {
-	name: "Home",
-	components: {
-		NavBar,
-		Carousel
-	},
-	data() {
-		return {
-			fields: {
-				guestName: { label: "Name" },
-				addGuest: { label: "Guest Name" },
-				guest: { label: "Guest", class: "text-left" },
-				actions: { label: "RSVP", class: "text-center" }
-			},
-			boards: [],
-			errors: [],
-			ref: firebase.firestore().collection("users"),
-			guests: [],
-			results: null,
-			slide: 0,
-			sliding: null,
-			form1Name: "",
-			form1Name2: "",
-			form1Code: "",
-			oneRSVP: true,
-			showForm: false,
-			success: false,
-			name1: "",
-			name2: "",
-			code: ""
-		};
-	},
-	created() {
-		this.ref.onSnapshot(querySnapshot => {
-			this.boards = [];
-			querySnapshot.forEach(doc => {
-				this.boards.push({
-					key: doc.id,
-					guest: doc.data().guest
-				});
-			});
-		});
-	},
-	methods: {
-		validateForm: function() {
-			firebase
-				.auth()
-				.signInWithEmailAndPassword(this.name1, this.code)
-				.then(
-					function(user) {
-						alert("You are now logged in!");
-					},
-					function(err) {
-						alert("Oops! " + err.message);
-					}
-				);
-		},
+  name: "Home",
+  components: {
+    NavBar
+  }
+  //   data() {
+  //     return {
+  //       fields: {
+  //         guestName: { label: "Name" },
+  //         addGuest: { label: "Guest Name" },
+  //         guest: { label: "Guest", class: "text-left" },
+  //         actions: { label: "RSVP", class: "text-center" }
+  //       },
+  //       boards: [],
+  //       errors: [],
+  //       ref: firebase.firestore().collection("users"),
+  //       guests: [],
+  //       results: null,
+  //       slide: 0,
+  //       sliding: null,
+  //       form1Name: "",
+  //       form1Name2: "",
+  //       form1Code: "",
+  //       oneRSVP: true,
+  //       showForm: false,
+  //       success: false,
+  //       name1: "",
+  //       name2: "",
+  //       code: ""
+  //     };
+  //   },
+  //   created() {
+  //     this.ref.onSnapshot(querySnapshot => {
+  //       this.boards = [];
+  //       querySnapshot.forEach(doc => {
+  //         this.boards.push({
+  //           key: doc.id,
+  //           guest: doc.data().guest
+  //         });
+  //       });
+  //     });
+  //   },
+  //   methods: {
+  //     validateForm: function() {
+  //       firebase
+  //         .auth()
+  //         .signInWithEmailAndPassword(this.name1, this.code)
+  //         .then(
+  //           function(user) {
+  //             alert("You are now logged in!");
+  //           },
+  //           function(err) {
+  //             alert("Oops! " + err.message);
+  //           }
+  //         );
+  //     },
 
-		validateForm1: function() {
-			if (this.formName1 != "" && this.form1Code != "" && this.form1Code < 5) {
-				console.log("Guest does not have a +1.");
-				this.showForm = false;
-				this.oneRSVP = true;
-				this.success = true;
-			} else {
-				console.log("Guest has a +1. Show 2nd Form.");
-				this.showForm = true;
-				this.oneRSVP = false;
-			}
-		},
+  //     validateForm1: function() {
+  //       if (this.formName1 != "" && this.form1Code != "" && this.form1Code < 5) {
+  //         console.log("Guest does not have a +1.");
+  //         this.showForm = false;
+  //         this.oneRSVP = true;
+  //         this.success = true;
+  //       } else {
+  //         console.log("Guest has a +1. Show 2nd Form.");
+  //         this.showForm = true;
+  //         this.oneRSVP = false;
+  //       }
+  //     },
 
-		onSlideStart(slide) {
-			this.sliding = true;
-		},
-		onSlideEnd(slide) {
-			this.sliding = false;
-		},
+  //     onSlideStart(slide) {
+  //       this.sliding = true;
+  //     },
+  //     onSlideEnd(slide) {
+  //       this.sliding = false;
+  //     },
 
-		details(board) {
-			router.push({ name: "ShowForm", params: { id: board.key } });
-		}
-	}
+  //     details(board) {
+  //       router.push({ name: "ShowForm", params: { id: board.key } });
+  //     }
+  //   }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1,
-h2 {
-	font-weight: normal;
+video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
 }
 
-ul {
-	list-style-type: none;
-	padding: 0;
+.divider {
+  border-top: 2px solid rgba(255, 255, 255, 0.4) !important;
 }
-li {
-	display: inline-block;
-	width: 300px;
-	min-height: 300px;
-	border: solid 1px #e8e8e8;
-	padding: 10px;
-	margin: 5px;
+.card-spacer {
+  border: none;
+  padding: 0;
 }
-a {
-	color: #42b983;
+.page-hero {
+  color: inherit;
+  background-color: #eee;
+  height: 500px;
+  overflow: hidden;
+  position: relative;
 }
-
-.carousel-section {
-	position: relative;
+.content {
+  position: relative;
 }
 
-.middle-left {
-	position: absolute;
-	color: white;
-	margin: auto 0;
-	top: 25%;
-	font-size: 50px;
-	background-color: rgba(0, 0, 0, 0.6);
-	width: 100%;
-	height: 100px;
-	z-index: 20;
+/* .shade {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 0;
+  left: 0;
+} */
+
+.header {
+  font-family: brandon-grotesque, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 5rem !important;
+}
+
+.lead {
+  font-family: brandon-grotesque, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 1.5rem;
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .page-hero {
+    height: 100% !important;
+  }
+  .content {
+    padding: 100px 120px !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .page-hero {
+    height: 100% !important;
+  }
+  .content {
+    padding: 100px 120px !important;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .page-hero {
+    height: 100% !important;
+  }
+  .content {
+    padding: 100px 120px !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .page-hero {
+    height: 1000px !important;
+  }
+  .content {
+    padding: 100px 120px;
+  }
 }
 </style>
-
-

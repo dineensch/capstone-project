@@ -1,7 +1,10 @@
 <template>
-  <div>
+  <div class="mb-5">
     <nav-bar></nav-bar>
-    <page-hero></page-hero>
+    <page-hero>
+      <template v-slot:title>The Team</template>
+      <template v-slot:body>Meet the wedding party.</template>
+    </page-hero>
     <b-container>
       <b-row>
         <!-- COLUMN 1 -->

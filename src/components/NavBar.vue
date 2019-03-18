@@ -1,7 +1,9 @@
 <template>
   <b-container fluid class="m-0 p-0">
     <b-navbar class="px-4 py-2 m-0" toggleable="lg" type="dark" variant="dark" sticky>
-      <b-navbar-brand href="#/" class="nav-text">I Do With Vue</b-navbar-brand>
+      <b-navbar-brand href="#/">
+        <img src="../assets/nav-icon.png" class="d-inline-block align-top" alt="Hearts icon">
+      </b-navbar-brand>
 
       <b-navbar-toggle target="nav_collapse"/>
 
@@ -48,7 +50,7 @@ a.navbar-brand {
 }
 
 .navbar-toggler {
-  font-size: 2.5rem !important;
+  font-size: 2rem !important;
 }
 
 a {
@@ -56,35 +58,45 @@ a {
 }
 
 a.nav-link {
+  font-family: brandon-grotesque, sans-serif;
+  font-weight: 300;
+  font-style: normal;
   text-decoration: none;
   font-size: 2.5rem;
+  font-weight: 300;
+  line-height: 1.5;
   color: rgba(255, 255, 255, 0.7) !important;
 }
 a.nav-link:hover {
   color: rgba(255, 255, 255) !important;
 }
-/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
-/* @media screen and (min-width: 576px) {
-	.nav-text {
-		font-size: 30px;
-	}
-} */
 
-@media screen and (min-width: 768px) {
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
   .nav-text {
     font-size: 25px;
   }
 }
 
-/* @media screen and (min-width: 992px) {
-	.nav-text {
-		font-size: 25px;
-	}
-} */
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+}
 
-@media screen and (min-width: 1200px) {
-  .nav-text {
-    font-size: 20px;
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  a.navbar-brand {
+    font-size: 2.5rem;
+  }
+  a.nav-link {
+    font-size: 1.5rem;
+  }
+
+  nav.navbar {
+    line-height: 1;
   }
 }
 </style>

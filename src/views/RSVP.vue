@@ -1,11 +1,22 @@
 <template>
   <div>
     <nav-bar></nav-bar>
-    <page-hero></page-hero>
+    <page-hero>
+      <template v-slot:title>RSVP</template>
+      <template v-slot:body>Update your RSVP status below.</template>
+    </page-hero>
     <b-container class="mt-5 px-5" fluid>
       <b-row>
         <b-col cols="12">
-          <b-table stacked fixed striped hover :items="boards" :fields="fields">
+          <b-table
+            stacked
+            fixed
+            striped
+            hover
+            :items="boards"
+            :fields="fields"
+            class="table-content"
+          >
             <template slot="actions" scope="row">
               <b-btn @click.stop="details(row.item)">Edit</b-btn>
             </template>
@@ -72,16 +83,47 @@ export default {
 .jumbotron {
   padding: 2rem;
 }
-
+.table-content {
+  font-size: 2rem;
+  font-family: brandon-grotesque, sans-serif !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+}
 th {
   font-size: 2rem;
+  font-family: brandon-grotesque, sans-serif !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
 }
 
-td {
-  font-size: 2rem;
+td.table-content {
+  font-size: 5rem !important;
+  font-family: brandon-grotesque, sans-serif !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
 }
 
 button.btn {
   font-size: 1.5rem;
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
 }
 </style>
