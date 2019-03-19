@@ -1,7 +1,7 @@
 <template>
   <div class="page-hero fluid">
     <b-jumbotron class="page-hero fluid text-white">
-      <video preload muted fluid autoplay loop>
+      <video preload muted fluid autoplay loop playsinline>
         <source src="../assets/video-background.mp4" type="video/mp4">
       </video>
       <div class="shade"></div>

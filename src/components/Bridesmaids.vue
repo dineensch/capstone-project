@@ -9,10 +9,7 @@
           <b-row v-bind="rowStyle">
             <b-col v-bind="longCol">
               <div v-bind="red" id="exPopover1">
-                <b-img
-                  v-bind="photoStyle"
-                  src="https://picsum.photos/200/200/?image=1011"
-                  alt="headshot"
+                <b-img v-bind="photoStyle" src="https://picsum.photos/200/200/?image=1011" alt="headshot"
                 />
                 <h5>Rachel</h5>
                 <b-popover
