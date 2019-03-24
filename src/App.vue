@@ -1,14 +1,12 @@
 <template>
-  <div id="app">
-    <b-container fluid class="p-0 mx-0">
-      <router-view></router-view>
-    </b-container>
+  <div id="app" class="content">
+    <router-view/>
   </div>
 </template>
 
 <script>
 export default {
-  name: "app"
+  name: "App"
 };
 </script>
 

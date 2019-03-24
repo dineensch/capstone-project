@@ -38,7 +38,8 @@
 </template>
 
 <script>
-import firebase from "../firebase";
+import firebase from "firebase";
+import { db } from "../fbconfig";
 import router from "../router";
 import NavBar from "@/components/NavBar";
 import PageHero from "@/components/PageHero";
@@ -61,10 +62,7 @@ export default {
     };
   },
   created() {
-    const ref = firebase
-      .firestore()
-      .collection("boards")
-      .doc(this.$route.params.id);
+    const ref = db.collection("boards").doc(this.$route.params.id);
     ref.get().then(doc => {
       if (doc.exists) {
         this.board = doc.data();
@@ -76,10 +74,7 @@ export default {
   methods: {
     onSubmit(evt) {
       evt.preventDefault();
-      const updateRef = firebase
-        .firestore()
-        .collection("boards")
-        .doc(this.$route.params.id);
+      const updateRef = db.collection("boards").doc(this.$route.params.id);
       updateRef
         .set(this.board)
         .then(docRef => {

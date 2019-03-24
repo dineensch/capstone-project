@@ -3,7 +3,7 @@
     <nav-bar></nav-bar>
     <b-container class="mt-5 px-5">
       <h3>Sign In</h3>
-      <b-form v-on:submit="login">
+      <!-- <b-form v-on:submit="login">
         <b-input type="text" v-model="email" placeholder="email" class="mb-2 mr-sm-2 mb-sm-0"/>
 
         <b-input
@@ -14,17 +14,13 @@
         />
 
         <b-btn type="submit" variant="dark" class="m-1">RSVP</b-btn>
-      </b-form>
+      </b-form>-->
 
-      <!-- <input type="text" v-model="email" placeholder="Email">
+      <input type="text" v-model="email" placeholder="Email">
       <br>
       <input type="password" v-model="password" placeholder="Password">
       <br>
-      <button @click="login">Connection</button>
-      <p>
-        You don't have an account ? You can
-        <router-link to="/sign-up">create one</router-link>
-      </p>-->
+      <button v-on:click="login" class="button">Enter</button>
     </b-container>
   </div>
 </template>
@@ -38,25 +34,24 @@ export default {
   components: {
     NavBar
   },
-  data() {
+  data: function() {
     return {
       email: "",
       password: ""
     };
   },
+
   methods: {
-    login: function() {
+    login() {
       firebase
         .auth()
         .signInWithEmailAndPassword(this.email, this.password)
-        .then(
-          user => {
-            this.$router.push({ path: "rsvp" });
-          },
-          err => {
-            alert("Oops. " + err.message);
-          }
-        );
+        .then(user => {
+          this.$router.replace("/rsvp");
+        })
+        .catch(err => {
+          alert(err.message);
+        });
     }
   }
 };

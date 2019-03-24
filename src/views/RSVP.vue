@@ -6,15 +6,6 @@
       <template v-slot:body>Update your RSVP status below.</template>
     </page-hero>
     <b-container class="mt-5 px-5">
-      <!-- <b-row>
-				<b-col cols="12">
-					<b-table stacked fixed striped hover :items="boards" :fields="fields" class="table-content">
-						<template slot="actions" scope="row">
-							<b-btn @click.stop="edit(row.item)">Edit</b-btn>
-						</template>
-					</b-table>
-				</b-col>
-      </b-row>-->
       <p class="nomessages text-secondary" v-if="boards.length == 0">
         <strong>Loading...</strong>
       </p>
@@ -35,13 +26,14 @@
           </b-row>
         </b-container>
       </div>
-      <b-button @click="logout">Logout</b-button>
+      <button class="button logout" v-on:click="logout">Logout</button>
     </b-container>
   </div>
 </template>
 
 <script>
 import firebase from "firebase";
+import { db } from "../fbconfig";
 import router from "../router";
 import NavBar from "@/components/NavBar";
 import PageHero from "@/components/PageHero";
@@ -63,7 +55,7 @@ export default {
       },
       boards: [],
       errors: [],
-      ref: firebase.firestore().collection("boards")
+      ref: db.collection("boards")
     };
   },
   created() {
