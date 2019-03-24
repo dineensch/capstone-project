@@ -1,110 +1,88 @@
 <template>
-	<div class="container">
-		<div class="card login">
-			<div class="card-body">
-				<h2 class="card-title text-center">Login</h2>
-				<form @submit.prevent="login" class="text-center">
-					<div class="form-group">
-						<input
-							type="text"
-							class="form-control"
-							placeholder="Please enter your name ..."
-							name="name"
-							v-model="name"
-						>
-						<p v-if="errorText" class="text-danger">{{ errorText }}</p>
-					</div>
-					<button class="btn btn-primary">Enter Chat</button>
-				</form>
-			</div>
-		</div>
-	</div>
+  <div class="login">
+    <nav-bar></nav-bar>
+    <b-container class="mt-5 px-5">
+      <h3>Sign In</h3>
+      <b-form v-on:submit="login">
+        <b-input type="text" v-model="email" placeholder="email" class="mb-2 mr-sm-2 mb-sm-0"/>
+
+        <b-input
+          type="password"
+          v-model="password"
+          placeholder="password"
+          class="mb-2 mr-sm-2 mb-sm-0"
+        />
+
+        <b-btn type="submit" variant="dark" class="m-1">RSVP</b-btn>
+      </b-form>
+
+      <!-- <input type="text" v-model="email" placeholder="Email">
+      <br>
+      <input type="password" v-model="password" placeholder="Password">
+      <br>
+      <button @click="login">Connection</button>
+      <p>
+        You don't have an account ? You can
+        <router-link to="/sign-up">create one</router-link>
+      </p>-->
+    </b-container>
+  </div>
 </template>
 
 <script>
+import firebase from "firebase";
+import NavBar from "@/components/NavBar";
+
 export default {
-	name: "home",
-	data() {
-		return {
-			name: "",
-			errorText: null
-		};
-	},
-	methods: {
-		login() {
-			if (this.name) {
-				this.$router.push({ name: "Chat", params: { name: this.name } });
-			} else {
-				this.errorText = "Please enter a name!";
-			}
-		}
-	}
+  name: "login",
+  components: {
+    NavBar
+  },
+  data() {
+    return {
+      email: "",
+      password: ""
+    };
+  },
+  methods: {
+    login: function() {
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(this.email, this.password)
+        .then(
+          user => {
+            this.$router.push({ path: "rsvp" });
+          },
+          err => {
+            alert("Oops. " + err.message);
+          }
+        );
+    }
+  }
 };
 </script>
 
-<style>
+<style scoped>
+/* "scoped" attribute limit the CSS to this component only */
 .login {
-	max-width: 450px;
-	margin-top: 50px;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
+  margin-top: 40px;
 }
-</style>
-
-
-
-
-<template>
-	<!-- <div class="container">
-		<div class="card login">
-			<div class="card-body">
-				<h2 class="card-title text-center">Login</h2>
-				<form @submit.prevent="login" class="text-center">
-					<div class="form-group">
-						<input type="email" class="form-control" placeholder="Email" name="email" v-model="email">
-						<input
-							type="password"
-							class="form-control"
-							placeholder="Enter Code"
-							name="code"
-							v-model="code"
-						>
-					</div>
-					<button class="btn btn-primary" @click="login">Login</button>
-				</form>
-			</div>
-		</div>
-	</div>-->
-</template>
-
-<script>
-export default {
-	name: "home",
-	data() {
-		return {
-			name: "",
-			errorText: null
-		};
-	},
-	methods: {
-		login() {
-			if (this.name) {
-				this.$router.push({ name: "Chat", params: { name: this.name } });
-			} else {
-				this.errorText = "Please enter a name!";
-			}
-		}
-	}
-};
-</script>
-
-<style>
-/* .login {
-	max-width: 450px;
-	margin-top: 50px;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-} */
+input {
+  margin: 10px 0;
+  width: 20%;
+  padding: 15px;
+}
+button {
+  margin-top: 20px;
+  width: 10%;
+  cursor: pointer;
+}
+p {
+  margin-top: 40px;
+  font-size: 13px;
+}
+p a {
+  text-decoration: underline;
+  cursor: pointer;
+}
 </style>

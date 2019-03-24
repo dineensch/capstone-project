@@ -30,9 +30,9 @@ export default {
       drawer: false,
       items: [
         { title: "Venue", routeUrl: "/venue" },
-        { title: "RSVP", routeUrl: "/RSVP" },
+        { title: "RSVP", routeUrl: "/rsvp" },
         { title: "FAQs", routeUrl: "/faqs" },
-        { title: "The Team", routeUrl: "/join" }
+        { title: "The Team", routeUrl: "/theteam" }
       ]
     };
   }
