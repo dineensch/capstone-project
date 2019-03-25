@@ -14,4 +14,7 @@ export default {
 html {
   margin-bottom: 20%;
 }
+* {
+  font-family: brandon-grotesque, sans-serif !important;
+}
 </style>

@@ -1,16 +1,20 @@
 <template>
   <b-container fluid class="m-0 p-0">
-    <b-navbar class="px-4 py-2 m-0" toggleable="lg" type="dark" variant="dark" sticky>
-      <b-navbar-brand href="#/">
+    <b-navbar class="px-4 py-2 pt-2" toggleable="lg" type="light">
+      <!-- <b-navbar-brand href="#/">
         <img src="../assets/nav-icon.png" class="d-inline-block align-top" alt="Hearts icon">
-      </b-navbar-brand>
+      </b-navbar-brand>-->
 
-      <b-navbar-toggle target="nav_collapse"/>
+      <div>
+        <b-navbar-toggle target="nav_collapse"/>
+        <span class="toggle-text">Menu</span>
+      </div>
 
-      <b-collapse is-nav id="nav_collapse" class="p-0">
+      <b-collapse is-nav id="nav_collapse" class="p-0 text-center">
         <!-- Right aligned nav items -->
-        <b-navbar-nav class="ml-auto">
+        <b-navbar-nav class="mx-auto text-center">
           <b-navbar-nav class="nav-text">
+            <b-nav-item href="#/">Home</b-nav-item>
             <b-nav-item href="#/venue">Venue</b-nav-item>
             <b-nav-item href="#/faqs">FAQs</b-nav-item>
             <b-nav-item href="#/theteam">The Team</b-nav-item>
@@ -40,35 +44,34 @@ export default {
 </script>
 
 <style scoped>
-.pgtitle {
-  color: white;
-  text-decoration: none;
-}
-
 a.navbar-brand {
   font-size: 3.5rem;
+}
+
+span.navbar-toggler-icon {
+  color: #212021 !important;
 }
 
 .navbar-toggler {
   font-size: 2rem !important;
 }
 
-a {
-  color: white;
-}
-
-a.nav-link {
+a.nav-link,
+span {
   font-family: brandon-grotesque, sans-serif;
-  font-weight: 300;
+  font-weight: 500;
   font-style: normal;
   text-decoration: none;
-  font-size: 2.5rem;
-  font-weight: 300;
-  line-height: 1.5;
-  color: rgba(255, 255, 255, 0.7) !important;
+  font-size: 1.5rem;
+  line-height: 1.3;
+  color: #212021 !important;
+  text-transform: uppercase;
+  margin: 0 1rem;
+  letter-spacing: 8px;
 }
+
 a.nav-link:hover {
-  color: rgba(255, 255, 255) !important;
+  color: #8a756e !important;
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -83,16 +86,12 @@ a.nav-link:hover {
 }
 
 /* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) and (max-width: 1199.98px) {
-}
-
-/* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
-  a.navbar-brand {
-    font-size: 2.5rem;
+@media (min-width: 992px) {
+  .toggle-text {
+    display: none;
   }
   a.nav-link {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 
   nav.navbar {

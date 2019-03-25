@@ -65,7 +65,7 @@
               </div>
             </b-col>
           </b-row>
-          <h2>Sisters</h2>
+
           <b-row v-bind="rowStyle">
             <b-col v-bind="colStyle" cols="12" md="4" lg="4">
               <div v-bind="red">
@@ -98,7 +98,7 @@
               </div>
             </b-col>
           </b-row>
-          <h2>Grandparents</h2>
+
           <b-row v-bind="rowStyle">
             <b-col v-bind="colStyle" cols="12" md="4" lg="4">
               <div v-bind="red">

@@ -1,10 +1,10 @@
 <template>
   <div>
-    <nav-bar></nav-bar>
     <page-hero>
       <template v-slot:title>Venue</template>
       <template v-slot:body>Please see below for details regarding the venue</template>
     </page-hero>
+    <nav-bar></nav-bar>
     <b-container fluid class="mt-3 page-container">
       <b-container fluid>
         <b-row>
@@ -78,10 +78,18 @@ p {
   font-style: normal;
 }
 
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 425.98px) and (max-width: 576px) {
+  h1,
+  h2 {
+    font-size: 2rem !important;
+  }
+}
+
 /* // Small devices (landscape phones, 576px and up) */
 @media screen and (max-width: 576px) {
   h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
   h2 {
     font-size: 2rem;
