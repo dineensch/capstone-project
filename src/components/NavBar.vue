@@ -1,10 +1,6 @@
 <template>
 	<b-container fluid class="m-0 p-0">
-		<b-navbar class="px-4 py-2 pt-2" toggleable="md" type="light">
-			<!-- <b-navbar-brand href="#/">
-        <img src="../assets/nav-icon.png" class="d-inline-block align-top" alt="Hearts icon">
-			</b-navbar-brand>-->
-
+		<b-navbar class="px-4 py-2 pt-2" toggleable="lg" type="light">
 			<div>
 				<b-navbar-toggle target="nav_collapse"/>
 				<span class="toggle-text">Menu</span>
