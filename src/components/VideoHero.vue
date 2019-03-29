@@ -90,17 +90,15 @@ div.page-box {
 }
 
 .header {
-	font-family: brandon-grotesque, sans-serif;
-	font-weight: 300;
-	font-style: normal;
-	font-size: 5rem !important;
+	font-weight: 400 !important;
+	text-shadow: 2px 2px 5px #ffffff !important;
+	font-size: 7rem !important;
 }
 
 .lead {
-	font-family: brandon-grotesque, sans-serif;
-	font-weight: 300;
-	font-style: normal;
-	font-size: 3rem;
+	font-weight: 500;
+	font-size: 3.6rem;
+	text-shadow: 2px 2px 3px #ffffff !important;
 }
 
 /* Small devices (landscape phones, 576px and up) */
