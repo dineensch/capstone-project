@@ -117,15 +117,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-a.btn,
-.card-body {
-  font-size: 2rem;
-  font-family: brandon-grotesque, sans-serif;
-  font-weight: 300;
-  font-style: normal;
-  line-height: 1;
-}
-
 h1,
 .h1 {
   font-size: 3.5rem;
@@ -134,61 +125,21 @@ h1,
   font-style: normal;
 }
 
+.card-body {
+  font-size: 2.5rem;
+  font-family: brandon-grotesque, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  line-height: 1.3;
+}
+
+.btn {
+  font-size: 2.3rem;
+  font-weight: 500;
+}
+
 .page-container {
   margin-bottom: 10%;
-}
-
-/* Extra small devices (portrait phones, less than 576px) */
-@media (min-width: 425.98px) {
-  h1,
-  .h1 {
-    font-size: 3rem !important;
-  }
-  .card-body {
-    font-size: 1.5rem !important;
-    line-height: 1.3 !important;
-    font-weight: 300 !important;
-    color: #363436 !important;
-    letter-spacing: 0.8px;
-  }
-}
-
-/* Small devices (landscape phones, less than 768px) */
-@media (min-width: 576px) and (max-width: 767.98px) {
-}
-
-/* Medium devices (tablets, less than 992px) */
-@media (min-width: 768px) and (max-width: 991.98px) {
-}
-
-/* Large devices (desktops, less than 1200px) */
-@media (min-width: 992px) and (max-width: 1199.98px) {
-  div.accordion-card {
-    width: 80% !important;
-  }
-  a.btn {
-    font-weight: 100;
-    font-size: 1.5rem;
-  }
-  h1,
-  .h1 {
-    font-size: 2.5rem;
-  }
-}
-
-/* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
-  div.accordion-card {
-    width: 50% !important;
-  }
-
-  a.btn {
-    font-weight: 100;
-  }
-  h1,
-  .h1 {
-    font-size: 2.5rem;
-  }
 }
 </style>
 

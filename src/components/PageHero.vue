@@ -5,8 +5,6 @@
     </div>
     <div class="page-hero fluid mb-0">
       <b-jumbotron class="fluid text-dark">
-        <!-- <img src="../assets/background.jpg" class="img-fluid"> -->
-
         <div class="shade"></div>
         <div class="content">
           <h1 class="header">
@@ -22,9 +20,6 @@
   </div>
 </template>
 
-
-
-
 <script>
 export default {
   name: "PageHero",
@@ -39,21 +34,15 @@ export default {
 <style scoped>
 div.jumbotron {
   background-image: url("../assets/background.jpg");
-  height: 500px;
+  height: auto;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: scroll;
-}
-
-.divider {
-  border-top: 2px solid rgba(0, 0, 0, 0.4) !important;
+  margin: 0;
 }
 
 .page-hero {
-  color: inherit;
   background-color: #eee;
-  height: 20rem;
   overflow: hidden;
   position: relative;
 }
@@ -66,6 +55,7 @@ div.jumbotron {
   height: 100%;
   background: rgba(255, 255, 255, 0.6);
   position: absolute;
+
   top: 0;
   left: 0;
 }
@@ -90,72 +80,16 @@ div.page-box {
 }
 
 .header {
-  font-family: brandon-grotesque, sans-serif;
-  font-weight: 300;
-  font-style: normal;
-  font-size: 5rem !important;
+  font-weight: 400;
+  text-shadow: 2px 2px 2px #ffffff;
+  font-size: 8rem;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.6);
 }
 
 .lead {
-  font-family: brandon-grotesque, sans-serif;
-  font-weight: 300;
-  font-style: normal;
-  font-size: 3rem;
-}
-
-/* Small devices (landscape phones, 576px and up) */
-@media (min-width: 425.98px) and (max-width: 767.98px) {
-}
-
-/* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
-  /* .page-box {
-		height: 4rem !important;
-	} */
-  div.jumbotron {
-    background-attachment: scroll;
-    background-position: bottom;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  /* div.page-box {
-		height: 5rem;
-	} */
-  .header {
-    font-size: 4rem !important;
-  }
-  .lead {
-    font-size: 2rem !important;
-  }
-  hr {
-    margin-top: 0.3rem !important;
-    margin-bottom: 0.3rem !important;
-  }
-}
-
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {
-}
-
-/* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
-}
-
-/* Medium devices (tablets, less than 992px) */
-@media (min-width: 768px) and (max-width: 991.98px) {
-  .page-hero {
-    height: 400px;
-  }
-}
-
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {
-  .page-hero {
-    height: 27rem;
-    margin-bottom: 0.8rem;
-  }
-  .content {
-    padding: 100px 120px;
-  }
+  font-weight: 400;
+  font-size: 4rem;
+  line-height: 1;
+  text-shadow: 1px 1px 2px #ffffff;
 }
 </style>

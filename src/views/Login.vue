@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <nav-bar></nav-bar>
-    <b-container fluid class="mt-5 px-5">
+    <b-container class="mt-5 px-5">
       <h1>Sign In</h1>
       <b-form @submit="login" class="mt-5">
         <b-form-group>
@@ -67,6 +67,12 @@ input {
 button {
   cursor: pointer;
   background-color: #581c1d;
+  border: none;
+  width: 100%;
+  font-size: 3rem;
+  padding: 0.5rem 2rem;
+  margin-top: 1rem;
+  text-transform: uppercase;
 }
 
 h1 {
@@ -87,13 +93,6 @@ p a {
 
 /* Small Desktop Screens */
 @media (min-width: 425.98px) {
-  h1 {
-    font-size: 2.5rem !important;
-  }
-
-  input {
-    font-size: 1.5rem !important;
-  }
 }
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) and (max-width: 767.98px) {

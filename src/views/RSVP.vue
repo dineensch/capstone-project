@@ -26,13 +26,13 @@
               </h1>
             </b-col>
             <b-col cols="12" class="pt-5">
-              <b-button @click.stop="edit(board)">Edit</b-button>
+              <b-button class="red-btn" @click.stop="edit(board)">Edit</b-button>
             </b-col>
           </b-row>
         </div>
         <hr class="divider">
         <div class="logout text-center mt-5">
-          <b-button class="px-5" v-on:click="logout">Logout</b-button>
+          <b-button class="px-5" variant="secondary" v-on:click="logout">Logout</b-button>
         </div>
       </b-container>
     </b-container>
@@ -96,7 +96,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .jumbotron {
   padding: 2rem;
 }
@@ -110,6 +110,17 @@ h1 {
 
 button.btn {
   font-size: 3rem;
+  cursor: pointer;
+  border: none;
+  width: 100%;
+  font-size: 3rem;
+  padding: 0.5rem 2rem;
+  margin-top: 1rem;
+  text-transform: uppercase;
+}
+
+.red-btn {
+  background-color: #581c1d !important;
 }
 
 .logout {
@@ -122,14 +133,6 @@ button.btn {
 }
 /* Small Desktop Screens */
 @media (min-width: 425.98px) {
-  h1 {
-    font-size: 2.4rem !important;
-    font-family: brandon-grotesque, sans-serif !important;
-    font-weight: 300 !important;
-  }
-  button.btn {
-    font-size: 1.5rem;
-  }
 }
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) and (max-width: 767.98px) {
