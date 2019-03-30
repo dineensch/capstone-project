@@ -55,7 +55,7 @@ export default {
       boxes: [
         {
           name: "Debbie",
-          image: "https://picsum.photos/600/600/?image=1011",
+          image: "https://picsum.photos/600/600/?image=550",
           info: {
             one: "",
             two: "",
@@ -66,7 +66,18 @@ export default {
         },
         {
           name: "Jerry",
-          image: "https://picsum.photos/600/600/?image=1012",
+          image: "https://picsum.photos/600/600/?image=513",
+          info: {
+            one: "",
+            two: "",
+            three: ""
+          },
+          style: { class: "beige col-border" },
+          isShowing: false
+        },
+        {
+          name: "Melodi",
+          image: "https://picsum.photos/600/600/?image=399",
           info: {
             one: "",
             two: "",
@@ -77,7 +88,7 @@ export default {
         },
         {
           name: "Teri",
-          image: "https://picsum.photos/600/600/?image=1005",
+          image: "https://picsum.photos/600/600/?image=633",
           info: {
             one: "",
             two: "",
@@ -88,7 +99,7 @@ export default {
         },
         {
           name: "Steve",
-          image: "https://picsum.photos/600/600/?image=883",
+          image: "https://picsum.photos/600/600/?image=473",
           info: {
             one: "",
             two: "",
